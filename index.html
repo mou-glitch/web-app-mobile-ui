@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "blue-accent": "#0088ff",
+            },
+            animation: {
+              "bounce-slow": "bounce 3s infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes ripple {
+        0% {
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0;
+        }
+      }
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        animation: ripple 2s linear infinite;
+        left: 50%;
+        top: 50%;
+      }
+      @keyframes slide-in-up {
+        0% {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .animate-slide-in-up {
+        animation: slide-in-up 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-900 to-gray-800 w-screen text-white font-sans overflow-hidden"
+  >
+    <header class="flex justify-center">
+      <img
+        src="../assets/copima-logo.png"
+        alt="COPIMA Logo"
+        class="w-32 h-auto mt-6"
+      />
+    </header>
+
+    <div class="h-screen flex flex-col justify-between p-6">
+      <div>
+        <h1 class="text-4xl font-bold leading-tight my-2 text-start">
+          Bienvenue <br />
+          chez <span class="text-blue-accent">COPIMA</span>
+        </h1>
+        <h1 class="text-4xl font-bold leading-tight my-2 text-right">
+          مرحبا بكم <br />
+          عند <span class="text-blue-accent">كوبيما</span>
+        </h1>
+      </div>
+
+      <!-- Background Text -->
+      <div
+        class="fixed text-[7rem] text-center font-normal text-white opacity-5 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
+      >
+        COPIMA
+      </div>
+
+      <!-- Centered Content -->
+      <div
+        class="z-10 max-w-lg mx-auto px-4 animate-slide-in-up text-center space-y-4"
+      >
+        <p class="text-lg font-bold leading-relaxed">
+          Veuillez vérifier votre localisation pour bénéficier d'avantages sur
+          vos relevés d'Octobre - Novembre et Décembre
+        </p>
+        <p class="text-lg font-bold leading-relaxed">
+          يرجى التحقق من موقعك للحصول على المزايا في كشوفات شهر أكتوبر - نوفمبر
+          - ديسمبر
+        </p>
+      </div>
+
+      <!-- Location Indicator -->
+      <div class="flex justify-center items-center mt-auto mb-8 relative">
+        <div class="relative inline-flex flex-col items-center w-64 h-64">
+          <svg
+            class="w-10 h-10 text-blue-accent animate-bounce-slow z-10"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            ></path>
+          </svg>
+          <div class="ripple bg-blue-accent/20 w-64 h-64"></div>
+          <div
+            class="ripple bg-blue-accent/20 w-64 h-64"
+            style="animation-delay: 1s"
+          ></div>
+          <div class="mt-4 text-lg font-medium text-center z-10">
+            Vérifier ma localisation
+          </div>
+          <div class="mt-2 text-lg font-medium text-center z-10">
+            التحقق من موقعي
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

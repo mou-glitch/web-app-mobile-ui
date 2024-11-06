@@ -3,7 +3,7 @@ const TARGET_LOCATION = {
   lat: 33.552252,
   lng: -7.633616,
 };
-const ALLOWED_RADIUS = 1; // in kilometers
+const ALLOWED_RADIUS = 20; // in kilometers
 const TOKEN_EXPIRY_MINUTES = 2;
 
 // Function to calculate the distance between two latitude/longitude points using the Haversine formula
@@ -40,7 +40,7 @@ function checkLocation() {
 
         if (distance <= ALLOWED_RADIUS) {
           // Redirect if within the allowed radius
-          window.location.href = "/new-page.html";
+          window.location.href = "/copima-form.html";
         } else {
           // Show notification if user is further than the allowed radius
           const notification = document.getElementById("notification");

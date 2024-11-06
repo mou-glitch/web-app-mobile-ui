@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COPIMA Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-blue-900 to-gray-900 text-white font-['Poppins',sans-serif] flex flex-col items-center p-4 sm:p-6"
+  >
+    <header class="mb-6 w-full max-w-xs">
+      <img
+        src="/assets/copima-logo.png"
+        alt="COPIMA Logo"
+        class="w-24 h-auto mx-auto"
+      />
+    </header>
+
+    <form
+      id="copimaForm"
+      class="w-full max-w-xs space-y-6 bg-gray-800 bg-opacity-50 p-6 rounded-2xl shadow-lg backdrop-blur-sm"
+    >
+      <div class="space-y-4">
+        <div>
+          <label for="fullName" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span>Nom et Prénom <span class="text-red-500">*</span></span>
+              <span class="text-gray-400">الاسم الكامل</span>
+            </span>
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            required
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+        </div>
+
+        <div>
+          <label for="company" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span
+                >Nom de l'entreprise <span class="text-red-500">*</span></span
+              >
+              <span class="text-gray-400">اسم الشركة</span>
+            </span>
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            required
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+        </div>
+
+        <div>
+          <label for="phone" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span>Téléphone <span class="text-red-500">*</span></span>
+              <span class="text-gray-400">الهاتف</span>
+            </span>
+          </label>
+          <div class="flex">
+            <div
+              class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg"
+            >
+              <img
+                src="https://flagcdn.com/w40/ma.png"
+                alt="Morocco flag"
+                class="w-4 h-auto mr-2"
+              />
+              +212
+            </div>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="rounded-r-lg flex-1 w-full px-4 py-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span>Email</span>
+              <span class="text-gray-400">البريد الإلكتروني</span>
+            </span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+        </div>
+
+        <div>
+          <label for="clientCode" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span>Code Client</span>
+              <span class="text-gray-400">رمز العميل</span>
+            </span>
+          </label>
+          <input
+            type="number"
+            id="clientCode"
+            name="clientCode"
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+          />
+        </div>
+
+        <div>
+          <label for="city" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span>Ville <span class="text-red-500">*</span></span>
+              <span class="text-gray-400">المدينة</span>
+            </span>
+          </label>
+          <div class="relative">
+            <input
+              type="text"
+              id="city"
+              name="city"
+              required
+              class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+            />
+            <ul
+              id="citySuggestions"
+              class="absolute z-10 w-full bg-gray-700 border border-gray-600 mt-1 max-h-60 overflow-auto rounded-lg shadow-lg hidden"
+            ></ul>
+          </div>
+        </div>
+
+        <div>
+          <label for="fonction" class="block mb-1 text-sm font-medium">
+            <span class="flex justify-between">
+              <span>Fonction <span class="text-red-500">*</span></span>
+              <span class="text-gray-400">الوظيفة</span>
+            </span>
+          </label>
+          <select
+            id="fonction"
+            name="fonction"
+            required
+            class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 appearance-none"
+          >
+            <option value="">Sélectionnez votre fonction</option>
+            <option value="directeur">Directeur</option>
+            <option value="manager">Manager</option>
+            <option value="ingenieur">Ingénieur</option>
+            <option value="technicien">Technicien</option>
+            <option value="commercial">Commercial</option>
+            <option value="administratif">Administratif</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 transform hover:scale-105"
+      >
+        Soumettre / إرسال
+      </button>
+    </form>
+
+    <script>
+      const moroccanCities = [
+        "Casablanca",
+        "Rabat",
+        "Marrakech",
+        "Fès",
+        "Tanger",
+        "Agadir",
+        "Meknès",
+        "Oujda",
+        "Kénitra",
+        "Tétouan",
+        "Safi",
+        "Mohammedia",
+        "Khouribga",
+        "El Jadida",
+        "Béni Mellal",
+        "Nador",
+        "Taza",
+        "Khemisset",
+      ];
+
+      const cityInput = document.getElementById("city");
+      const citySuggestions = document.getElementById("citySuggestions");
+
+      cityInput.addEventListener("input", function () {
+        const input = this.value.toLowerCase();
+        if (input.length > 0) {
+          const filteredCities = moroccanCities.filter((city) =>
+            city.toLowerCase().startsWith(input)
+          );
+
+          displaySuggestions(
+            filteredCities.slice(0, Math.max(4, filteredCities.length))
+          );
+        } else {
+          citySuggestions.innerHTML = "";
+          citySuggestions.classList.add("hidden");
+        }
+      });
+
+      function displaySuggestions(suggestions) {
+        citySuggestions.innerHTML = "";
+        if (suggestions.length > 0) {
+          suggestions.forEach((city) => {
+            const li = document.createElement("li");
+            li.textContent = city;
+            li.className = "px-4 py-2 hover:bg-gray-600 cursor-pointer";
+            li.addEventListener("click", function () {
+              cityInput.value = city;
+              citySuggestions.innerHTML = "";
+              citySuggestions.classList.add("hidden");
+            });
+            citySuggestions.appendChild(li);
+          });
+          citySuggestions.classList.remove("hidden");
+        } else {
+          citySuggestions.classList.add("hidden");
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        if (e.target !== cityInput && e.target !== citySuggestions) {
+          citySuggestions.classList.add("hidden");
+        }
+      });
+
+      document
+        .getElementById("copimaForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Here you would typically send the form data to a server
+          console.log("Form submitted");
+          // You can access form data like this:
+          // const formData = new FormData(this);
+          // formData.forEach((value, key) => console.log(key + ': ' + value));
+        });
+    </script>
+  </body>
+</html>

@@ -5,22 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COPIMA Location Verification</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(-25%);
-          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-        }
-        50% {
-          transform: translateY(0);
-          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-        }
-      }
-      .animate-bounce-slow {
-        animation: bounce 2s infinite;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body
     class="bg-gradient-to-br from-gray-900 to-gray-800 w-full h-screen text-white font-sans overflow-hidden flex flex-col"
@@ -105,6 +90,7 @@
           </div>
         </button>
       </div>
+
       <div
         id="searching"
         class="absolute inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500"
@@ -182,16 +168,12 @@
       </style>
     </main>
 
-    <script>
-      document
-        .getElementById("verify-location")
-        .addEventListener("click", function () {
-          document.getElementById("header").style.opacity = "0";
-          document.getElementById("content").style.opacity = "0";
-          document.getElementById("button-container").style.opacity = "0";
-          document.getElementById("searching").style.opacity = "1";
-          document.getElementById("searching").style.pointerEvents = "auto";
-        });
-    </script>
+    <!-- Notification container -->
+    <div
+      id="notification"
+      class="hidden fixed top-0 left-0 w-full bg-red-600 text-white text-center p-4 font-semibold"
+    ></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
